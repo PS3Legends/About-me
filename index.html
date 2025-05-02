@@ -3,41 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayoub Magsi</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <title>Ayoub Magsi | Professional Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">Ayoub Magsi</div>
-        <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Experience</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section class="main">
-        <div class="left">
-            <img src="avatar.png" alt="">
+    <header class="glass-nav">
+        <div class="brand">
+            <span class="logo-mark">AM</span>
+            <h1 class="logo-text">Ayoub Magsi</h1>
         </div>
-        <div class="right">
-            <h1>Hi, It's <span>Ayoub Magsi</span></h1>
-            <h2>I'm a <span class="highlight">Developer</span></h2>
-            <p>"Talk is cheap Show me the code Linus Torvalds"</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fas fa-discord"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+        
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services" class="nav-link"><i class="fas fa-code"></i> Services</a></li>
+                <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero-section">
+            <div class="profile-container">
+                <div class="profile-image-wrapper">
+                    <img src="avatar.png" alt="Ayoub Magsi" class="profile-image">
+                    <div class="image-border-animation"></div>
+                </div>
+                
+                <div class="hero-content">
+                    <p class="greeting">Hello World!</p>
+                    <h2 class="hero-title">I'm <span class="name-highlight">Ayoub Magsi</span></h2>
+                    <h3 class="hero-subtitle">Professional <span class="typing-animation"></span></h3>
+                    
+                    <p class="hero-description">
+                        Passionate developer creating innovative solutions with clean, efficient code. 
+                        Specializing in modern web technologies and user-centric design.
+                    </p>
+                    
+                    <div class="action-buttons">
+                        <a href="#contact" class="btn primary-btn">Hire Me</a>
+                        <a href="#" class="btn secondary-btn">View Portfolio</a>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
             </div>
-            <button>Hire me</button>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
