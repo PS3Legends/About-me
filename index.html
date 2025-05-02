@@ -3,67 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayoub Magsi | Professional Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ayoub Magsi | Code Artist</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="glass-nav">
-        <div class="brand">
-            <span class="logo-mark">AM</span>
-            <h1 class="logo-text">Ayoub Magsi</h1>
-        </div>
-        
-        <nav class="main-nav">
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services" class="nav-link"><i class="fas fa-code"></i> Services</a></li>
-                <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
-                <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-            
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section id="home" class="hero-section">
-            <div class="profile-container">
-                <div class="profile-image-wrapper">
-                    <img src="avatar.png" alt="Ayoub Magsi" class="profile-image">
-                    <div class="image-border-animation"></div>
+    <div class="particles" id="particles"></div>
+    
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-ayoub">AM</span>
+                <span class="logo-text">Ayoub Magsi</span>
+            </div>
+            <div class="nav-menu">
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
                 </div>
-                
-                <div class="hero-content">
-                    <p class="greeting">Hello World!</p>
-                    <h2 class="hero-title">I'm <span class="name-highlight">Ayoub Magsi</span></h2>
-                    <h3 class="hero-subtitle">Professional <span class="typing-animation"></span></h3>
-                    
-                    <p class="hero-description">
-                        Passionate developer creating innovative solutions with clean, efficient code. 
-                        Specializing in modern web technologies and user-centric design.
-                    </p>
-                    
-                    <div class="action-buttons">
-                        <a href="#contact" class="btn primary-btn">Hire Me</a>
-                        <a href="#" class="btn secondary-btn">View Portfolio</a>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    </div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-code"></i> Services</a></li>
+                    <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="avatar.png" alt="Ayoub Magsi">
+                    <div class="image-border"></div>
+                    <div class="image-dots"></div>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h4 class="greeting">Hello World!</h4>
+                    <h1 class="title">I'm <span class="name">Ayoub Magsi</span></h1>
+                    <h2 class="subtitle">Professional <span class="typing"></span></h2>
+                    <p class="description">Crafting digital experiences with clean code and creative solutions. Transforming ideas into functional reality.</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn hire-btn">Hire Me</a>
+                    <a href="#projects" class="btn portfolio-btn">View Work</a>
+                </div>
+                <div class="hero-social">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
