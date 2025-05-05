@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let isEnd = false;
     
     function typeWriter() {
         const currentWord = professions[wordIndex];
@@ -47,33 +46,49 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(typeWriter, 1000);
     
-    particlesJS('particles', {
-        particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: "#a29bfe" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5, random: true },
-            size: { value: 3, random: true },
-            line_linked: { enable: true, distance: 150, color: "#6c5ce7", opacity: 0.4, width: 1 },
-            move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: { enable: true, mode: "repulse" },
-                onclick: { enable: true, mode: "push" }
-            }
-        }
-    });
-    
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
         const nav = document.querySelector('.cyber-nav');
         
         if (scrollPosition > 50) {
             nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+            nav.style.backdropFilter = 'blur(20px)';
         } else {
             nav.style.boxShadow = 'none';
+            nav.style.backdropFilter = 'blur(10px)';
+        }
+    });
+    
+    const imageWrapper = document.querySelector('.image-wrapper');
+    document.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        imageWrapper.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+    
+    imageWrapper.addEventListener('mouseleave', () => {
+        imageWrapper.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+    
+    gsap.from(".hero-image", {duration: 1.5, x: -100, opacity: 0, ease: "power3.out", delay: 0.5});
+    gsap.from(".hero-content", {duration: 1.5, x: 100, opacity: 0, ease: "power3.out", delay: 0.5});
+    
+    particlesJS('particles', {
+        particles: {
+            number: {value: 80, density: {enable: true, value_area: 800}},
+            color: {value: "#a29bfe"},
+            shape: {type: "circle"},
+            opacity: {value: 0.5, random: true},
+            size: {value: 3, random: true},
+            line_linked: {enable: true, distance: 150, color: "#6c5ce7", opacity: 0.4, width: 1},
+            move: {enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out"}
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {enable: true, mode: "repulse"},
+                onclick: {enable: true, mode: "push"}
+            }
         }
     });
 });
