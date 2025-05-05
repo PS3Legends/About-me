@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     const typingElement = document.querySelector('.typing');
-    const professions = ['Developer', 'Designer', 'Coder', 'Problem Solver'];
+    const professions = ['Developer', 'Designer', 'Coder', 'Problem Solver', 'Tech Artist', 'Innovator'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -70,8 +70,29 @@ document.addEventListener('DOMContentLoaded', function() {
         imageWrapper.style.transform = 'rotateY(0deg) rotateX(0deg)';
     });
     
-    gsap.from(".hero-image", {duration: 1.5, x: -100, opacity: 0, ease: "power3.out", delay: 0.5});
-    gsap.from(".hero-content", {duration: 1.5, x: 100, opacity: 0, ease: "power3.out", delay: 0.5});
+    gsap.from(".hero-image", {
+        duration: 1.5,
+        x: -100,
+        opacity: 0,
+        ease: "power3.out",
+        delay: 0.5
+    });
+    
+    gsap.from(".hero-content", {
+        duration: 1.5,
+        x: 100,
+        opacity: 0,
+        ease: "power3.out",
+        delay: 0.5
+    });
+    
+    gsap.to(".portfolio-btn", {
+        duration: 2,
+        y: -10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
     
     particlesJS('particles', {
         particles: {
@@ -91,4 +112,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // إنشاء أشكال عشوائية تطفو في الخلفية
+    const floatingShapes = document.querySelector('.floating-shapes');
+    for (let i = 0; i < 5; i++) {
+        const shape = document.createElement('div');
+        shape.className = 'floating-shape';
+        shape.style.width = `${Math.random() * 200 + 50}px`;
+        shape.style.height = shape.style.width;
+        shape.style.left = `${Math.random() * 100}%`;
+        shape.style.top = `${Math.random() * 100}%`;
+        shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+        shape.style.animationDelay = `${Math.random() * 5}s`;
+        floatingShapes.appendChild(shape);
+    }
 });
