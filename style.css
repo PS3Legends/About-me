@@ -434,24 +434,28 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
     
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(45, 52, 54, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        transition: all 0.5s ease;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
+.main-nav {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.main-nav a:hover {
+    color: #007bff;
+}
     
     .nav-btn {
         padding: 15px 30px;
