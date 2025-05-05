@@ -94,4 +94,62 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }, 5000);
+
+    // Typing Effect
+    const typingElement = document.querySelector('.typing');
+    const words = ["Developer", "Designer", "Freelancer"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isEnd = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        const currentChar = currentWord.substring(0, charIndex);
+        typingElement.textContent = currentChar;
+
+        if (!isDeleting && charIndex < currentWord.length) {
+            charIndex++;
+            setTimeout(type, 100);
+        } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+            setTimeout(type, 50);
+        } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+            setTimeout(type, 1000);
+        }
+    }
+
+    setTimeout(type, 1000);
+
+    // Cursor Blinking Effect
+    const cursor = document.querySelector('.cursor');
+    setInterval(() => {
+        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+    }, 500);
+
+    // Initialize Particles.js
+    if (document.getElementById('particles')) {
+        particlesJS('particles', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6c5ce7" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#6c5ce7", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    }
 });
