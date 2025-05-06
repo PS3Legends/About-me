@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.main-nav a');
     const socialIcons = document.querySelectorAll('.social-icon');
     const nav = document.querySelector('.cyber-nav');
+    const subtitle = document.querySelector('.subtitle');
     
     let lastScroll = 0;
     window.addEventListener('scroll', function() {
@@ -66,5 +67,21 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1) rotate(0)';
             this.style.boxShadow = '0 0 20px var(--primary)';
         });
+    });
+
+    setInterval(() => {
+        if (Math.random() > 0.7) {
+            subtitle.style.animation = 'none';
+            void subtitle.offsetWidth;
+            subtitle.style.animation = 'cyber-pulse 4s infinite ease-in-out, text-glitch 8s infinite linear, hologram-flicker 5s infinite ease';
+        }
+    }, 3000);
+
+    subtitle.addEventListener('mouseenter', () => {
+        subtitle.style.animation = 'cyber-pulse 1s infinite ease-in-out, text-glitch 2s infinite linear, hologram-flicker 1s infinite ease';
+    });
+
+    subtitle.addEventListener('mouseleave', () => {
+        subtitle.style.animation = 'cyber-pulse 4s infinite ease-in-out, text-glitch 8s infinite linear, hologram-flicker 5s infinite ease';
     });
 });
