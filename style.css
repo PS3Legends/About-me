@@ -24,6 +24,38 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, 
+            transparent 49%, 
+            rgba(0, 247, 255, 0.05) 50%, 
+            transparent 51%),
+        linear-gradient(transparent 49%, 
+            rgba(0, 247, 255, 0.05) 50%, 
+            transparent 51%);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: grid-move 20s linear infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-bg);
+    z-index: 9999;
+    animation: fadeOut 1s 0.5s forwards;
+}
+
 .cyber-nav {
     background: rgba(13, 13, 30, 0.8);
     backdrop-filter: blur(10px);
@@ -221,16 +253,17 @@ body {
     box-shadow: 0 0 50px rgba(0, 247, 255, 0.5), 
                 0 0 70px rgba(0, 255, 136, 0.3);
     transition: all 0.5s ease;
-}
-
-.hero-image img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 70px rgba(0, 247, 255, 0.8), 
-                0 0 100px rgba(0, 255, 136, 0.5);
+    animation: 
+        float 3s ease-in-out infinite,
+        micro-shake 10s linear infinite;
 }
 
 .hero-content {
     flex: 1;
+    transform: 
+        perspective(1000px) 
+        rotateX(calc(var(--scroll-pos, 0) * 5deg));
+    transform-origin: center top;
 }
 
 .greeting {
@@ -256,7 +289,8 @@ body {
     margin-bottom: 25px;
     color: var(--primary);
     animation: 
-        cyber-pulse 4s infinite ease-in-out,
+        hologram-breath 5s ease-in-out infinite,
+        random-blur 8s linear infinite,
         text-glitch 8s infinite linear,
         hologram-flicker 5s infinite ease;
     position: relative;
@@ -311,13 +345,65 @@ body {
     font-size: 20px;
     transition: all 0.3s ease;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    left: var(--x, -100%);
+    top: var(--y, -100%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle closest-side, 
+        rgba(0, 247, 255, 0.3), transparent);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .social-icon:hover {
     background: var(--primary);
     color: var(--dark);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.2) rotate(10deg);
     box-shadow: 0 0 20px var(--primary);
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes micro-shake {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-1px, 1px) rotate(-0.5deg); }
+    50% { transform: translate(1px, -1px) rotate(0.5deg); }
+    75% { transform: translate(-1px, -1px) rotate(0.5deg); }
+}
+
+@keyframes hologram-breath {
+    0%, 100% { transform: translateZ(0) scale(1); }
+    50% { transform: translateZ(20px) scale(1.05); }
+}
+
+@keyframes random-blur {
+    0%, 100% { filter: blur(0); }
+    15%, 85% { filter: blur(0.5px); }
+    30%, 70% { filter: blur(0); }
+    45%, 55% { filter: blur(1px); }
+}
+
+@keyframes grid-move {
+    to { background-position: 50px 50px; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; pointer-events: none; }
 }
 
 @keyframes cyber-pulse {
